@@ -3,7 +3,7 @@ const logger = require("./logger");
 const path = require("path");
 const client = new Client({
   authStrategy: new LocalAuth({
-    dataPath: path.join(process.cwd(), "/session"),
+    dataPath: process.cwd(),
   }),
 });
 const cron = require("node-cron");
