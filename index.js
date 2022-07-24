@@ -4,8 +4,9 @@ const credentials = require("./credentials.json");
 const axios = require("axios");
 const moment = require("moment");
 const GOOGLE_CALENDAR_API_KEY = credentials.api_key;
-const cron = require("node-cron");
-
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
 const getPublicHolidays = async () => {
   const { data } = await axios.get(
     `https://www.googleapis.com/calendar/v3/calendars/en.pk%23holiday%40group.v.calendar.google.com/events?key=${GOOGLE_CALENDAR_API_KEY}`
@@ -19,8 +20,8 @@ const getPublicHolidays = async () => {
   return publicHolidays;
 };
 
-require("./messageHandler");
+// require("./messageHandler");
 
-// cron.schedule("*/1 * * * * *", () => console.log("Cron Job ran", new Date()), {
-//   timezone: "Asia/Karachi",
-// });
+app.get("/", (req, res) => res.send("hello world"));
+
+app.listen(PORT);
