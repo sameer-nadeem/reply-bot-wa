@@ -1,7 +1,8 @@
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const logger = require("./logger");
+const path = require("path");
 const client = new Client({
-  authStrategy: new LocalAuth({ dataPath: "/session" }),
+  authStrategy: new LocalAuth({ dataPath: path.join(__dirname, "/") }),
 });
 const cron = require("node-cron");
 
