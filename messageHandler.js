@@ -2,6 +2,10 @@ const { Client, LocalAuth } = require("whatsapp-web.js");
 const logger = require("./logger");
 const path = require("path");
 const client = new Client({
+  puppeteer: {
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  },
   authStrategy: new LocalAuth({
     dataPath: process.cwd(),
   }),
