@@ -1,4 +1,6 @@
 .wwebjs_auth
 node_modules
 *.log
-auto-reply-key-v2.pem
+auto-reply-app-key.pem
+session
+/credentials.*
