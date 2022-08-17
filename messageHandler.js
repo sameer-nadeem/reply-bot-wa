@@ -23,7 +23,7 @@ const client = new Client({
 
 const createClient = () => {
   client.on("ready", () => {
-    logger.info(`Client Ready!`);
+    console.log(`Client Ready!`);
     client.sendMessage("923045032467@c.us", "Client started!");
     initCronJobs(client);
   });
